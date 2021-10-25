@@ -4,7 +4,7 @@
             <h1>Create New Account</h1>
         </div>
     </div>
-    <form [formGroup]="userForm">
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
         <div class="row">
             <div class="col-lg-6">
                 <label for="">Name</label>
@@ -32,6 +32,8 @@
                     'has-error':userForm.controls.password.touched && userForm.controls.password.invalid,
                     'has-success' : userForm.controls.password.touched && userForm.controls.password.valid
                 }" type="password" formControlName="password" class="form-control">
+                <span style="color:red;"
+                 *ngIf="userForm.controls.password.touched && userForm.controls.password.invalid">Please enter this Field</span>
             </div>
             <div class="col-lg-6">
                 <label for="">D.O.B</label>
@@ -41,17 +43,6 @@
                 }" type="date" formControlName="dob" class="form-control">
                 <span style="color:red;"
                  *ngIf="userForm.controls.dob.touched && userForm.controls.dob.invalid">Please enter this Field</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <label for="">Confirm Password</label>
-                <input [ngClass]="{
-                    'has-error':userForm.controls.confirmPass.touched && userForm.controls.confirmPass.invalid,
-                    'has-success' : userForm.controls.confirmPass.touched && userForm.controls.confirmPass.valid
-                }" type="password" formControlName="confirmPass" class="form-control">
-                <span style="color:red;"
-                 *ngIf="userForm.controls.confirmPass.touched && userForm.controls.confirmPass.invalid">Please enter this Field</span>
             </div>
         </div>
         <div class="row mt-3">

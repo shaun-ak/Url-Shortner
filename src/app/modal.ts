@@ -6,3 +6,15 @@ export interface UrlList {
     totalClicks: number,
     id: number
   }
+
+export interface user{
+  name:string,
+  email:string,
+  dob:Date,
+  password:string
+}
+
+export interface LoginUser{
+  name:string,
+  paswword:string
+}
